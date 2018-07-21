@@ -63,7 +63,7 @@ SwiftyProxy.registerSessionConfiguration(configuration)
 let manager = Alamofire.SessionManager(configuration: configuration)
 ```
 
-![SwiftyProxy](Assets/SwiftyProxy.gif)
+![SwiftyProxy](https://github.com/samirGuerdah/SwiftyProxy/blob/master/SwiftyProxy/Classes/Assets/SwiftyProxy.gif)
 
 ## Author
 
