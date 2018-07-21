@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 s.name             = 'SwiftyProxy'
 s.version          = '0.0.1'
-s.summary          = 'A Simple UI to inspect http/https trafic '
+s.summary          = 'A Proxy UI to inspect http/https trafic'
 s.homepage         = 'https://github.com/samirGuerdah/SwiftyProxy'
 s.license          = { :type => 'MIT', :file => 'LICENSE' }
 s.author           = { 'Samir Guerdah' => 'sguerdah@gmail.com' }
