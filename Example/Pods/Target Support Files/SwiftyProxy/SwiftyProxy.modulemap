@@ -1,0 +1,6 @@
+framework module SwiftyProxy {
+  umbrella header "SwiftyProxy-umbrella.h"
+
+  export *
+  module * { export * }
+}

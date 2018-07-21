@@ -1,0 +1,16 @@
+PODS:
+  - SwiftyProxy (0.0.1)
+
+DEPENDENCIES:
+  - SwiftyProxy (from `../`)
+
+EXTERNAL SOURCES:
+  SwiftyProxy:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  SwiftyProxy: a912562ad6ddf3c594e8f547036cc955e1936118
+
+PODFILE CHECKSUM: 2524081f3cc6bf8a017a76e297bb0cc131d9564e
+
+COCOAPODS: 1.5.3
