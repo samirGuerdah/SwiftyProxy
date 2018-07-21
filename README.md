@@ -1,6 +1,6 @@
 # SwiftyProxy
 
-[![CI Status](https://img.shields.io/travis/Samir Guerdah/SwiftyProxy.svg?style=flat)](https://travis-ci.org/SamirGuerdah/SwiftyProxy)
+[![CI Status](https://img.shields.io/travis/samirGuerdah/SwiftyProxy.svg?style=flat)](https://travis-ci.org/samirGuerdah/SwiftyProxy)
 [![Version](https://img.shields.io/cocoapods/v/SwiftyProxy.svg?style=flat)](https://cocoapods.org/pods/SwiftyProxy)
 [![License](https://img.shields.io/cocoapods/l/SwiftyProxy.svg?style=flat)](https://cocoapods.org/pods/SwiftyProxy)
 [![Platform](https://img.shields.io/cocoapods/p/SwiftyProxy.svg?style=flat)](https://cocoapods.org/pods/SwiftyProxy)
