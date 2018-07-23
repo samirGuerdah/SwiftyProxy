@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		02736B1581C93B1E7B5764C35C0EE52D /* Pods-SwiftyProxy_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 19A783FB9D92DD7B032E6ED25B86D753 /* Pods-SwiftyProxy_Tests-dummy.m */; };
-		0BC35EFBA2F2BB17157C237EB0AEDFE5 /* proxy.png in Sources */ = {isa = PBXBuildFile; fileRef = 7018A5DC31237D1A1164BD6E13304635 /* proxy.png */; };
 		0C654E96F9FC09BE70F50934A2EDCE22 /* FloatingButtonVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E694E5B0B1DB3D81B2ADEB1431F2E0B1 /* FloatingButtonVC.swift */; };
 		0EDF055DE38BED4196ED8D3145889EDA /* HttpTransactionIntercepter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23DBD5C272145E282598366899EF4EEE /* HttpTransactionIntercepter.swift */; };
 		1C535ABD20E1FE6566AE80733B4E12FF /* RequestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72A169D398A03C33FBEA16466B871A01 /* RequestCell.swift */; };
@@ -76,11 +75,6 @@
 		31BE5471F0B8A671EA776752D07A3B42 /* Pods-SwiftyProxy_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftyProxy_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		322D5B3C4AC7BC63169364FD7B67B54F /* Pods-SwiftyProxy_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SwiftyProxy_Example-resources.sh"; sourceTree = "<group>"; };
 		3440D9C48E9E84B0616FFE20EF494965 /* Pods-SwiftyProxy_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SwiftyProxy_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		371819052105FD9700E48BED /* request.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = request.png; sourceTree = "<group>"; };
-		371819062105FD9700E48BED /* share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share.png; sourceTree = "<group>"; };
-		371819072105FD9700E48BED /* transactions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = transactions.png; sourceTree = "<group>"; };
-		371819082105FD9800E48BED /* overview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = overview.png; sourceTree = "<group>"; };
-		371819092105FD9800E48BED /* response.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = response.png; sourceTree = "<group>"; };
 		3860F5BD5688F06D15F7659155F901DC /* Pods-SwiftyProxy_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SwiftyProxy_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		47B33ABAFE947C74E462478A0616ED6A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D3F701BF0C1DCA96D6F09AD5E8ECD8E /* HttpProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HttpProtocol.swift; sourceTree = "<group>"; };
@@ -93,7 +87,6 @@
 		65B9F5CF371BB0851E2B184E987181E5 /* Pods-SwiftyProxy_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftyProxy_Example.release.xcconfig"; sourceTree = "<group>"; };
 		66CB748260DB5F3933C36D950CDA0391 /* RequestListVC.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RequestListVC.swift; sourceTree = "<group>"; };
 		6808B8FF491A6DA9D3A6EF926B21851D /* Pods-SwiftyProxy_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SwiftyProxy_Tests-umbrella.h"; sourceTree = "<group>"; };
-		7018A5DC31237D1A1164BD6E13304635 /* proxy.png */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = image.png; path = proxy.png; sourceTree = "<group>"; };
 		719AB6B2681A6DAFAE14AE58926F2FBB /* Pods_SwiftyProxy_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftyProxy_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		72A169D398A03C33FBEA16466B871A01 /* RequestCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = RequestCell.swift; sourceTree = "<group>"; };
 		758377CABA51D70A9B7D0FBE13B64DCD /* Pods-SwiftyProxy_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-SwiftyProxy_Tests.modulemap"; sourceTree = "<group>"; };
@@ -217,7 +210,6 @@
 		15BF4235734A3F6DD773084DFE1D0D18 /* SwiftyProxy */ = {
 			isa = PBXGroup;
 			children = (
-				3E520261E1F09FF57AD1DA0AD6BF2D3B /* Assets */,
 				0CA42A3A27B944F84ACCDF2F9B92BBB9 /* Cells */,
 				00610154F73B0EA595020BCBC4408FB0 /* Controllers */,
 				B99F0DDA70A747C114DF4A68B934D5E8 /* DataSources */,
@@ -265,20 +257,6 @@
 			);
 			name = "Pods-SwiftyProxy_Tests";
 			path = "Target Support Files/Pods-SwiftyProxy_Tests";
-			sourceTree = "<group>";
-		};
-		3E520261E1F09FF57AD1DA0AD6BF2D3B /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-				371819082105FD9800E48BED /* overview.png */,
-				371819052105FD9700E48BED /* request.png */,
-				371819092105FD9800E48BED /* response.png */,
-				371819062105FD9700E48BED /* share.png */,
-				371819072105FD9700E48BED /* transactions.png */,
-				7018A5DC31237D1A1164BD6E13304635 /* proxy.png */,
-			);
-			name = Assets;
-			path = SwiftyProxy/Classes/Assets;
 			sourceTree = "<group>";
 		};
 		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
@@ -522,7 +500,6 @@
 				3122B77A7F0E8D4F1A12F49628CAC0D8 /* KeyValueCell.swift in Sources */,
 				7C1C26D16D70BE709C8ACC05811D4E4A /* OverviewDataSource.swift in Sources */,
 				256084FDFCD9C06A8FFCA1DEB0572960 /* OverviewRowType.swift in Sources */,
-				0BC35EFBA2F2BB17157C237EB0AEDFE5 /* proxy.png in Sources */,
 				1C535ABD20E1FE6566AE80733B4E12FF /* RequestCell.swift in Sources */,
 				9554BC681A90AF5AB8EE4396167E509D /* RequestListDataSource.swift in Sources */,
 				BC0C6B2E060445D3547AF6112437A16C /* RequestListVC.swift in Sources */,
