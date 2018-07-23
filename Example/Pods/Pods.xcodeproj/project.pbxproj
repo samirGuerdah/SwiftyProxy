@@ -76,7 +76,11 @@
 		31BE5471F0B8A671EA776752D07A3B42 /* Pods-SwiftyProxy_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwiftyProxy_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		322D5B3C4AC7BC63169364FD7B67B54F /* Pods-SwiftyProxy_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SwiftyProxy_Example-resources.sh"; sourceTree = "<group>"; };
 		3440D9C48E9E84B0616FFE20EF494965 /* Pods-SwiftyProxy_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SwiftyProxy_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		3753799D2103618D0035D1A3 /* SwiftyProxy.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = SwiftyProxy.gif; sourceTree = "<group>"; };
+		371819052105FD9700E48BED /* request.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = request.png; sourceTree = "<group>"; };
+		371819062105FD9700E48BED /* share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share.png; sourceTree = "<group>"; };
+		371819072105FD9700E48BED /* transactions.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = transactions.png; sourceTree = "<group>"; };
+		371819082105FD9800E48BED /* overview.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = overview.png; sourceTree = "<group>"; };
+		371819092105FD9800E48BED /* response.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = response.png; sourceTree = "<group>"; };
 		3860F5BD5688F06D15F7659155F901DC /* Pods-SwiftyProxy_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SwiftyProxy_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		47B33ABAFE947C74E462478A0616ED6A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D3F701BF0C1DCA96D6F09AD5E8ECD8E /* HttpProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = HttpProtocol.swift; sourceTree = "<group>"; };
@@ -266,7 +270,11 @@
 		3E520261E1F09FF57AD1DA0AD6BF2D3B /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				3753799D2103618D0035D1A3 /* SwiftyProxy.gif */,
+				371819082105FD9800E48BED /* overview.png */,
+				371819052105FD9700E48BED /* request.png */,
+				371819092105FD9800E48BED /* response.png */,
+				371819062105FD9700E48BED /* share.png */,
+				371819072105FD9700E48BED /* transactions.png */,
 				7018A5DC31237D1A1164BD6E13304635 /* proxy.png */,
 			);
 			name = Assets;
