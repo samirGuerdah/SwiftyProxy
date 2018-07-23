@@ -5,6 +5,14 @@
 [![License](https://img.shields.io/cocoapods/l/SwiftyProxy.svg?style=flat)](https://cocoapods.org/pods/SwiftyProxy)
 [![Platform](https://img.shields.io/cocoapods/p/SwiftyProxy.svg?style=flat)](https://cocoapods.org/pods/SwiftyProxy)
 
+
+
+SwiftyProxy is an In-App http/https intercepter that provides a UI to inspect the content.
+
+
+![SwiftyProxy](SwiftyProxy/Assets/swiftyproxy.gif)
+
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
@@ -62,8 +70,6 @@ let configuration = URLSessionConfiguration.default
 SwiftyProxy.registerSessionConfiguration(configuration)
 let manager = Alamofire.SessionManager(configuration: configuration)
 ```
-
-![SwiftyProxy](https://github.com/samirGuerdah/SwiftyProxy/blob/master/SwiftyProxy/Classes/Assets/SwiftyProxy.gif)
 
 ## Author
 
