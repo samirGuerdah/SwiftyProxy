@@ -14,26 +14,21 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        SwiftyProxy.enable()
+        
+
+
+
+
 
         self.view.backgroundColor = UIColor.white
 
         let conf = URLSessionConfiguration.default
         let session = URLSession(configuration: conf)
-        let url = URL(string: "https://httpbin.org/status/undefined")!
+        let url = URL(string: "https://httpbin.org/ip")!
         var request = URLRequest(url: url)
         request.addValue("application/json", forHTTPHeaderField: "accept")
         request.httpMethod = "GET"
-        let dataTask = session.dataTask(with: request)
-        dataTask.resume()
-
-
-        let url2 = URL(string: "https://httpbin.org/ip")!
-        var request2 = URLRequest(url: url2)
-        request2.addValue("application/json", forHTTPHeaderField: "accept")
-        request2.httpMethod = "GET"
-        let dataTask2 = session.dataTask(with: request2)
-        dataTask2.resume()
+        NSURLConnection(request: request, delegate: self, startImmediately: true)
     }
 
 }

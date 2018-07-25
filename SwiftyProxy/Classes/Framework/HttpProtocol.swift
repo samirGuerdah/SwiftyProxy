@@ -22,6 +22,8 @@ open class SwiftyProxy: URLProtocol, URLSessionDataDelegate {
     }
 
     @objc public static func enable() {
+        URLProtocol.registerClass(SwiftyProxy.self);
+
         var floatingButtonAlreadyAdded = false
 
             UIApplication.shared.windows.forEach { (window) in
