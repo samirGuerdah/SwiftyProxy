@@ -14,12 +14,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        SwiftyProxy.enable()
 
         self.view.backgroundColor = UIColor.white
 
         let conf = URLSessionConfiguration.default
-        SwiftyProxy.registerSessionConfiguration(conf)
-
         let session = URLSession(configuration: conf)
         let url = URL(string: "https://httpbin.org/status/undefined")!
         var request = URLRequest(url: url)
