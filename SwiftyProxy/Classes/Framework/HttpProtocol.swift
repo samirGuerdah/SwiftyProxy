@@ -25,19 +25,17 @@ open class SwiftyProxy: URLProtocol, URLSessionDataDelegate {
         URLProtocol.registerClass(SwiftyProxy.self);
 
         var floatingButtonAlreadyAdded = false
-
-            UIApplication.shared.windows.forEach { (window) in
-                if window is FloatingButtonWindow {
-                    floatingButtonAlreadyAdded = true
-                }
+        UIApplication.shared.windows.forEach { (window) in
+            if window is FloatingButtonWindow {
+                floatingButtonAlreadyAdded = true
             }
-            if !floatingButtonAlreadyAdded {
-                _ = FloatingButtonVC()
-            }
-        
+        }
+        if !floatingButtonAlreadyAdded {
+            _ = FloatingButtonVC()
+        }
     }
 
-   @objc override public init(request: URLRequest, cachedResponse: CachedURLResponse?, client: URLProtocolClient?) {
+    override public init(request: URLRequest, cachedResponse: CachedURLResponse?, client: URLProtocolClient?) {
         super.init(request: request, cachedResponse: cachedResponse, client: client)
         let configuration = SwiftyConfiguration.default
         configuration.protocolClasses?.removeFirst()
@@ -46,28 +44,28 @@ open class SwiftyProxy: URLProtocol, URLSessionDataDelegate {
         currentRequest = request
     }
 
-   @objc override open class func canInit(with request: URLRequest) -> Bool {
+    override open class func canInit(with request: URLRequest) -> Bool {
         guard let scheme = request.url?.scheme, (scheme.contains("http") || scheme.contains("https")) else {
             return false
         }
         return true
     }
 
-   @objc override open class func canonicalRequest(for request: URLRequest) -> URLRequest {
+    override open class func canonicalRequest(for request: URLRequest) -> URLRequest {
         return request
     }
 
-   @objc override open func startLoading() {
+    override open func startLoading() {
         initCurrentHttpTask()
         currentTask.resume()
     }
 
-   @objc override open func stopLoading() {
+    override open func stopLoading() {
         session.invalidateAndCancel()
     }
 
     // MARK: URLSessionDelegate
-   @objc public func urlSession(_ session: URLSession,
+    public func urlSession(_ session: URLSession,
                                 dataTask: URLSessionDataTask,
                                 didReceive response: URLResponse,
                                 completionHandler: @escaping (URLSession.ResponseDisposition) -> Swift.Void) {
@@ -78,7 +76,7 @@ open class SwiftyProxy: URLProtocol, URLSessionDataDelegate {
         }
     }
 
-   @objc public func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
+    public func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) {
         if let error = error {
             self.currentError = error
             self.client?.urlProtocol(self, didFailWithError: error)
@@ -90,13 +88,13 @@ open class SwiftyProxy: URLProtocol, URLSessionDataDelegate {
         session.invalidateAndCancel()
     }
 
-   @objc public func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
+    public func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
         currentData.append(data)
         updateCurrentHttpTask()
         self.client?.urlProtocol(self, didLoad: data)
     }
 
-   @objc public func urlSession(_ session: URLSession,
+    public func urlSession(_ session: URLSession,
                                 didReceive challenge: URLAuthenticationChallenge,
                                 completionHandler:
     @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Swift.Void) {
@@ -108,7 +106,7 @@ open class SwiftyProxy: URLProtocol, URLSessionDataDelegate {
         }
     }
 
-   @objc public func urlSession(_ session: URLSession,
+    public func urlSession(_ session: URLSession,
                                 task: URLSessionTask,
                                 didFinishCollecting metrics: URLSessionTaskMetrics) {
         self.taskMetrics = metrics
@@ -116,7 +114,7 @@ open class SwiftyProxy: URLProtocol, URLSessionDataDelegate {
     }
 
     // MARK: ...
-   @objc func updateCurrentHttpTask() {
+    func updateCurrentHttpTask() {
         let requestData = Data(reading: currentRequest.httpBodyStream)
         self.currentHttpTask.updateWith(metrics: self.taskMetrics,
                                         error: self.currentError,
@@ -127,7 +125,7 @@ open class SwiftyProxy: URLProtocol, URLSessionDataDelegate {
         HttpTransactionIntercepter.shared.registerOrUpdateWithTask(self.currentHttpTask)
     }
 
-  @objc  func initCurrentHttpTask() {
+    func initCurrentHttpTask() {
         let identifier = String(describing: Unmanaged<AnyObject>
             .passUnretained(self.currentRequest as AnyObject).toOpaque())
         let requestData = Data(reading: currentRequest.httpBodyStream)
