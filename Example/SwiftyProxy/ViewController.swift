@@ -14,7 +14,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        SwiftyProxyURLProtocol.enable()
 
         self.view.backgroundColor = UIColor.white
 

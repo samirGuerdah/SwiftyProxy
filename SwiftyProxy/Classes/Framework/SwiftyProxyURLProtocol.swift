@@ -4,7 +4,7 @@ import Foundation
 
 class SwiftyConfiguration: URLSessionConfiguration {}
 
-open class SwiftyProxyURLProtocol: URLProtocol, URLSessionDataDelegate {
+class SwiftyProxyURLProtocol: URLProtocol, URLSessionDataDelegate {
 
     var session: URLSession!
     var currentTask: URLSessionDataTask!
@@ -21,20 +21,6 @@ open class SwiftyProxyURLProtocol: URLProtocol, URLSessionDataDelegate {
         configuration.protocolClasses = [SwiftyProxyURLProtocol.self] as [AnyClass] + configuration.protocolClasses!
     }
 
-    @objc public static func enable() {
-        URLProtocol.registerClass(SwiftyProxyURLProtocol.self);
-
-        var floatingButtonAlreadyAdded = false
-        UIApplication.shared.windows.forEach { (window) in
-            if window is FloatingButtonWindow {
-                floatingButtonAlreadyAdded = true
-            }
-        }
-        if !floatingButtonAlreadyAdded {
-            _ = FloatingButtonVC()
-        }
-    }
-
     override public init(request: URLRequest, cachedResponse: CachedURLResponse?, client: URLProtocolClient?) {
         super.init(request: request, cachedResponse: cachedResponse, client: client)
         let configuration = SwiftyConfiguration.default
@@ -44,7 +30,11 @@ open class SwiftyProxyURLProtocol: URLProtocol, URLSessionDataDelegate {
         currentRequest = request
     }
 
-    override open class func canInit(with request: URLRequest) -> Bool {
+    override open class func canInit(with request: URLRequest) -> Bool { 
+        // Check if the proxy is enabled
+        if !SwiftyProxy.shared.enabled {return false}
+
+        // Supported schemes
         guard let scheme = request.url?.scheme, (scheme.contains("http") || scheme.contains("https")) else {
             return false
         }
