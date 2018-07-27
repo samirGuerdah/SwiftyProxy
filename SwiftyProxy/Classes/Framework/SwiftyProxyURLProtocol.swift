@@ -4,7 +4,7 @@ import Foundation
 
 class SwiftyConfiguration: URLSessionConfiguration {}
 
-open class SwiftyProxy: URLProtocol, URLSessionDataDelegate {
+open class SwiftyProxyURLProtocol: URLProtocol, URLSessionDataDelegate {
 
     var session: URLSession!
     var currentTask: URLSessionDataTask!
@@ -18,11 +18,11 @@ open class SwiftyProxy: URLProtocol, URLSessionDataDelegate {
     var currentHttpTask: HttpTransaction!
 
     @objc public static func registerSessionConfiguration(_ configuration: URLSessionConfiguration) {
-        configuration.protocolClasses = [SwiftyProxy.self] as [AnyClass] + configuration.protocolClasses!
+        configuration.protocolClasses = [SwiftyProxyURLProtocol.self] as [AnyClass] + configuration.protocolClasses!
     }
 
     @objc public static func enable() {
-        URLProtocol.registerClass(SwiftyProxy.self);
+        URLProtocol.registerClass(SwiftyProxyURLProtocol.self);
 
         var floatingButtonAlreadyAdded = false
         UIApplication.shared.windows.forEach { (window) in

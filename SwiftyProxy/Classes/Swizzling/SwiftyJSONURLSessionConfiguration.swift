@@ -33,7 +33,7 @@ extension URLSessionConfiguration {
         get {
             let conf = self.swizzled_default
             defaultSessionConf = conf
-            SwiftyProxy.registerSessionConfiguration(conf)
+            SwiftyProxyURLProtocol.registerSessionConfiguration(conf)
             return conf
         }
     }
@@ -42,7 +42,7 @@ extension URLSessionConfiguration {
         get {
             let conf = self.swizzled_ephemeral
             ephemeralSessionConf = conf
-            SwiftyProxy.registerSessionConfiguration(conf)
+            SwiftyProxyURLProtocol.registerSessionConfiguration(conf)
             return conf
         }
     }
