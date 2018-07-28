@@ -46,7 +46,7 @@
 		B319B55634F425EED9F16381 /* Pods-SwiftyProxy_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftyProxy_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftyProxy_Tests/Pods-SwiftyProxy_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		CF0ADAFBD811185F88335086 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		F1B97CB2CAD225AC60FFEE77 /* Pods_SwiftyProxy_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftyProxy_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		FFF360A06073541AF1515472 /* SwiftyProxy.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SwiftyProxy.podspec; path = ../SwiftyProxy.podspec; sourceTree = "<group>"; };
+		FFF360A06073541AF1515472 /* SwiftyProxy.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = SwiftyProxy.podspec; path = ../SwiftyProxy.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
