@@ -24,5 +24,8 @@
   "platforms": {
     "ios": "10.0"
   },
-  "source_files": "SwiftyProxy/Classes/**/*"
+  "source_files": "SwiftyProxy/Classes/**/*",
+  "resources": [
+    "SwiftyProxy/Assets/*.png"
+  ]
 }

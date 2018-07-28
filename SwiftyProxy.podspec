@@ -14,4 +14,5 @@ s.ios.frameworks = 'UIKit'
 s.requires_arc = true
 s.ios.deployment_target = '10.0'
 s.source_files = 'SwiftyProxy/Classes/**/*'
+s.resources = ['SwiftyProxy/Assets/*.png']
 end
