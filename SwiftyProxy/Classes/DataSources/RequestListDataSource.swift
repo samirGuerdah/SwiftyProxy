@@ -5,12 +5,21 @@ import Foundation
 class RequestListDataSource: NSObject, UITableViewDataSource, UITableViewDelegate {
 
     // MARK: Properties
-    var httpTransactionList: [HttpTransaction]
+    var httpTransactionList: [HttpTransaction] {
+        didSet {
+            self.groupeTransactionsByUrlHost()
+        }
+    }
+    var httpTransactionsDic: Dictionary<String, [HttpTransaction]> = [:]
+    var hosts: [String] = []
+
     var selectTransactionCompletion: ((HttpTransaction) -> Void)?
 
     // MARK: Inits
     init(httpTransactionList: [HttpTransaction]) {
         self.httpTransactionList = httpTransactionList
+        super.init()
+        self.groupeTransactionsByUrlHost()
     }
 
     // MARK: Public function
@@ -20,8 +29,14 @@ class RequestListDataSource: NSObject, UITableViewDataSource, UITableViewDelegat
     }
 
     // MARK: UITableViewDataSource
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return self.hosts.count
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.httpTransactionList.count
+        let key = self.hosts[section]
+        guard let transList = self.httpTransactionsDic[key] else { return 0 }
+        return transList.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -48,5 +63,18 @@ class RequestListDataSource: NSObject, UITableViewDataSource, UITableViewDelegat
                                                               for: indexPath) as! RequestCell
         cell.fillWith(httpTransaction: httpTransaction)
         return cell
+    }
+
+    // MARK: Private
+    func groupeTransactionsByUrlHost()  {
+        self.httpTransactionList.forEach { (trans) in
+            if let host = trans.url?.host, !self.hosts.contains(host) {
+                self.hosts.append(host)
+                let filteredTransactions = self.httpTransactionList.filter({ (transactionToFilter) -> Bool in
+                    return transactionToFilter.url?.host == host
+                })
+                self.httpTransactionsDic[host] = filteredTransactions
+            }
+        }
     }
 }
