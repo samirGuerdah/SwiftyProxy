@@ -8,6 +8,7 @@
 
 
 SwiftyProxy is an In-App http/https intercepter that provides a UI to inspect the content.
+It works with URLConnection, URLSession, AFNetworking, Alamofire or any networking framework that use Cocoa's URL Loading System.
 
 
 ![SwiftyProxy](SwiftyProxy/Assets/swiftyproxy.gif)
@@ -39,36 +40,23 @@ Add the following dependency to your `Cartfile`:
 github "samirGuerdah/SwiftyProxy"
 ```
 
-## Usage example
+## Usage
 
-The first step is to register the `URLSessionConfiguration` of the `URLSession` that you are using for your web servicers.
+Enable the SwiftyProxy before doing any request, in the application delegate for example :
+
+```swift
+func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    SwiftyProxy.enable()
+    return true
+}
+```
 
 ```objc
 // Objective-C
-NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-[SwiftyProxy registerSessionConfiguration:configuration];
-```
-
-```swift
-// Swift
-let configuration = URLSessionConfiguration.default
-SwiftyProxy.registerSessionConfiguration(configuration)
-```
-
-if you're using [AFNetworking](https://github.com/AFNetworking/AFNetworking)/[Alamofire](https://github.com/Alamofire/Alamofire), you should register the  `URLSessionConfiguration` first with SwiftyProxy :
-
-```objc
-// Objective-C (AFNetworking)
-NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
-[SwiftyProxy registerSessionConfiguration:configuration];
-AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
-```
-
-```swift
-// Swift (Alamofire)
-let configuration = URLSessionConfiguration.default
-SwiftyProxy.registerSessionConfiguration(configuration)
-let manager = Alamofire.SessionManager(configuration: configuration)
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    [SwiftyProxy enable]
+    return true
+}
 ```
 
 ## Author
