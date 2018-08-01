@@ -106,6 +106,9 @@ class TransactionDetailsContainerVC: UIViewController, UIScrollViewDelegate {
         shareActionSheet.addAction(UIAlertAction(title: "Share as curl command", style: .default, handler: { _ in
             self.shareAsCurl()
         }))
+        shareActionSheet.addAction(UIAlertAction(title: "Share as text", style: .default, handler: { _ in
+            self.shareAsText()
+        }))
         shareActionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in
             self.dismiss(animated: true, completion: nil)
         }))
@@ -125,6 +128,16 @@ class TransactionDetailsContainerVC: UIViewController, UIScrollViewDelegate {
         let curlRepresentation = HttpTransactionShareFormatter
         .cURLRepresentationFor(httpTransaction: self.httpTransaction)
         let activityViewController = UIActivityViewController(activityItems: [curlRepresentation],
+                                                              applicationActivities: nil)
+        let deviceIdiom = UIScreen.main.traitCollection.userInterfaceIdiom
+        if deviceIdiom == .pad {
+            activityViewController.popoverPresentationController?.sourceView = self.view
+        }
+        self.present(activityViewController, animated: true, completion: nil)
+    }
+    func shareAsText() {
+        let textRepresentation = HttpTransactionShareFormatter.textRepresentationFor(httpTransaction: self.httpTransaction)
+        let activityViewController = UIActivityViewController(activityItems: [textRepresentation],
                                                               applicationActivities: nil)
         let deviceIdiom = UIScreen.main.traitCollection.userInterfaceIdiom
         if deviceIdiom == .pad {

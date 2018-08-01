@@ -78,4 +78,100 @@ class HttpTransactionShareFormatter {
         components.append("\"\(url.absoluteString)\"")
         return components.joined(separator: " \\\n\t")
     }
+
+    static func textRepresentationFor(httpTransaction: HttpTransaction) -> String {
+        var responseString  = ""
+        if let url = httpTransaction.url?.absoluteString {
+            responseString.append("\n\nURL: \(url)")
+        }
+        if let method = httpTransaction.httpMethod?.uppercased() {
+            responseString.append("\nMethod: \(method)")
+        }
+        if let scheme = httpTransaction.url?.scheme {
+            responseString.append("\nProtocol Name: \(scheme)")
+        }
+        if let httpResponse = httpTransaction.httpResponse {
+            responseString.append("\nResponse: \(httpResponse.statusCode)")
+        } else if let error = httpTransaction.error {
+            responseString.append("\nResponse: \(error.localizedDescription)")
+        }
+        responseString.append("\nSSL: \(httpTransaction.url?.scheme == "https" ? "Yes" : "No")")
+        responseString.append("\nFetch Type: \(httpTransaction.resourceFetchTypeString)")
+        if let metrics = httpTransaction.transactionMetrics {
+            responseString.append("\nProxy Connection: \(metrics.isProxyConnection ? "Yes" : "No")")
+            responseString.append("\nReused Connection: \(metrics.isReusedConnection ? "Yes" : "No")")
+
+            // Timing
+            let formatter = Formatter.dateFormatter
+            if let domainLookupStartDate = metrics.domainLookupStartDate {
+                responseString.append("\n\nDomain Lookup Start: \(formatter.string(from: domainLookupStartDate))")
+            }
+            if let domainLookupEndDate = metrics.domainLookupEndDate {
+                responseString.append("\nDomain Lookup End: \(formatter.string(from: domainLookupEndDate))")
+            }
+            if let connectStartDate = metrics.connectStartDate {
+                responseString.append("\nConnect Start: \(formatter.string(from: connectStartDate))")
+            }
+            if let connectEndDate = metrics.connectEndDate {
+                responseString.append("\nConnect End: \(formatter.string(from: connectEndDate))")
+            }
+            if let secureConnecionStartDate = metrics.secureConnectionStartDate {
+                responseString.append("\nSecure Connection Start: \(formatter.string(from: secureConnecionStartDate))")
+            }
+            if let secureConnectionEnd = metrics.secureConnectionEndDate {
+                responseString.append("\nSecure Connection End: \(formatter.string(from: secureConnectionEnd))")
+            }
+            if let fetchStartDate = metrics.fetchStartDate {
+                responseString.append("\nFetch Start: \(formatter.string(from: fetchStartDate))")
+            }
+            if let requestStartDate = metrics.requestStartDate {
+                responseString.append("\nRequest Start: \(formatter.string(from: requestStartDate))")
+            }
+            if let requestEndDate = metrics.requestEndDate {
+                responseString.append("\nRequest End: \(formatter.string(from: requestEndDate))")
+            }
+            if let responseStartDate = metrics.responseStartDate {
+                responseString.append("\nResponse Start: \(formatter.string(from: responseStartDate))")
+            }
+            if let responseEndDate = metrics.responseEndDate {
+                responseString.append("\nResponse End: \(formatter.string(from: responseEndDate))")
+            }
+
+            // Request
+            responseString.append("\n\n---------- Request ----------")
+            let requestHttpHeaders: [AnyHashable: Any]? = httpTransaction.request.allHTTPHeaderFields
+            let formattedRequest = formattedTextForHeaders(headers: requestHttpHeaders, data: httpTransaction.body)
+            responseString.append("\n\(formattedRequest)")
+
+
+            // Response
+            responseString.append("\n\n\n---------- Response ----------")
+            let responseHttpHeaders: [AnyHashable: Any]? = httpTransaction.httpResponse?.allHeaderFields
+            let formattedResponse = formattedTextForHeaders(headers: responseHttpHeaders, data: httpTransaction.responseData)
+            responseString.append("\n\(formattedResponse)")
+        }
+
+        return responseString
+    }
+
+    static func formattedTextForHeaders(headers: [AnyHashable: Any]?, data: Data?) -> String {
+        var formattedText = ""
+        if let headers = headers {
+            let requestHeaderKeys: [AnyHashable] = Array(headers.keys)
+            requestHeaderKeys.forEach { (key) in
+                if let value = headers[key] {
+                    formattedText.append("\n\(key): \(value)")
+                }
+            }
+        }
+        if let requestData = data {
+            if let jsonData = try? JSONSerialization.jsonObject(with: requestData, options: []) {
+                formattedText.append("\n\n\(JSONStringify(value: jsonData))")
+            }
+            else {
+                formattedText.append("\n\n\(String(decoding: requestData, as: UTF8.self))")
+            }
+        }
+        return formattedText
+    }
 }
