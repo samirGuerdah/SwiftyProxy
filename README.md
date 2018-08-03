@@ -59,6 +59,8 @@ func application(_ application: UIApplication, didFinishLaunchingWithOptions lau
 }
 ```
 
+If you want to lanuch SwiftyProxy click on the floating button. You can also move this button by dragging it around the screen.
+
 ## Author
 
 Samir Guerdah, sguerdah@gmail.com
